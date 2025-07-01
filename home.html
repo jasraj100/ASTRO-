@@ -108,6 +108,29 @@
             width: 100%;
         }
         
+        /* FSSAI Badge in Header */
+        .fssai-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #059669;
+            font-weight: 600;
+        }
+        
+        .fssai-logo {
+            width: 40px;
+            height: 30px;
+            background: #059669;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -177,8 +200,6 @@
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(217, 119, 6, 0.5);
         }
-        
-
         
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -265,6 +286,73 @@
             font-size: 1.5rem;
         }
         
+        /* FSSAI Section */
+        .fssai-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 2rem;
+            margin: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            border: 2px solid #059669;
+        }
+        
+        .fssai-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .fssai-logo-large {
+            width: 120px;
+            height: 90px;
+            background: linear-gradient(45deg, #059669, #10b981);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.3);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .fssai-info {
+            text-align: left;
+        }
+        
+        .fssai-info h3 {
+            color: #059669;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .fssai-license {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            background: linear-gradient(45deg, #059669, #10b981);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .fssai-description {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
         /* Nutrition Section */
         .nutrition-section {
             padding: 5rem 2rem;
@@ -346,6 +434,37 @@
             box-shadow: 0 15px 40px rgba(217, 119, 6, 0.3);
         }
         
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .footer-fssai {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-fssai-logo {
+            width: 60px;
+            height: 45px;
+            background: #059669;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
         /* Scroll animations */
         .fade-in {
             opacity: 0;
@@ -368,12 +487,30 @@
                 display: none;
             }
             
+            .fssai-header {
+                font-size: 0.8rem;
+            }
+            
+            .fssai-logo {
+                width: 35px;
+                height: 25px;
+            }
+            
             .floating-cow {
                 display: none;
             }
             
             .product-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .fssai-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .fssai-info {
+                text-align: center;
             }
         }
         
@@ -399,9 +536,14 @@
     <header>
         <nav>
             <div class="logo">SWARNADHENU</div>
+            <div class="fssai-header">
+                <div class="fssai-logo">FSSAI</div>
+                <span>Lic: 21425870000532</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#product">Product</a></li>
+                <li><a href="#fssai">FSSAI</a></li>
                 <li><a href="#nutrition">Nutrition</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -414,8 +556,6 @@
             <p>Premium A2 Gir Cow Ghee crafted with traditional bilona methods. Pure, natural, and rich in heritage - bringing you the authentic taste of traditional Indian ghee.</p>
             <button class="cta-button hover-3d">Discover Pure Tradition</button>
         </div>
-        
-
     </section>
     
     <section class="product-section glass-effect fade-in" id="product">
@@ -436,6 +576,21 @@
             <div class="product-card hover-3d">
                 <h3>🌿 100% Natural</h3>
                 <p>Free from additives and preservatives. Pure, natural ghee ideal for cooking, spreading, and daily wellness.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="fssai-section fade-in" id="fssai">
+        <div class="fssai-content">
+            <div class="fssai-logo-large">
+                FSSAI<br>CERTIFIED
+            </div>
+            <div class="fssai-info">
+                <h3>FSSAI Certified Quality</h3>
+                <div class="fssai-license">License No: 21425870000532</div>
+                <div class="fssai-description">
+                    Our products are manufactured under strict FSSAI guidelines ensuring the highest standards of food safety and quality. This certification guarantees that our A2 Gir Cow Ghee meets all regulatory requirements for consumer safety and nutritional standards.
+                </div>
             </div>
         </div>
     </section>
@@ -513,6 +668,14 @@
         </div>
     </section>
     
+    <footer class="footer">
+        <div class="footer-fssai">
+            <div class="footer-fssai-logo">FSSAI</div>
+            <span>Licensed Food Business | License No: 21425870000532</span>
+        </div>
+        <p>&copy; 2025 Swarnadhenu - Sona Organic. All rights reserved.</p>
+    </footer>
+    
     <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -561,7 +724,6 @@
             const bgAnimation = document.querySelector('.bg-animation');
             bgAnimation.style.transform = `translateY(${rate}px)`;
         });
-        
     </script>
 </body>
 </html>
