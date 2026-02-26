@@ -1,729 +1,1719 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swarnadhenu - Premium A2 Gir Cow Ghee | Sona Organic</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Arial', sans-serif;
-            overflow-x: hidden;
-            background: linear-gradient(135deg, #fff9c4, #ffd700, #ffed4a);
-            color: #333;
-        }
-        
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(45deg, #fff9c4, #ffd700, #ffed4a, #f59e0b);
-            background-size: 400% 400%;
-            animation: gradientShift 8s ease infinite;
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 2rem;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            animation: slideDown 1s ease-out;
-        }
-        
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #d97706;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .nav-links a:hover {
-            color: #d97706;
-            transform: translateY(-2px);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #d97706;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        /* FSSAI Badge in Header */
-        .fssai-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: #059669;
-            font-weight: 600;
-        }
-        
-        .fssai-logo {
-            width: 40px;
-            height: 30px;
-            background: #059669;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.7rem;
-            font-weight: bold;
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            flex: 1;
-            z-index: 2;
-            animation: fadeInLeft 1.5s ease-out;
-        }
-        
-        @keyframes fadeInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #d97706, #f59e0b, #fbbf24);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: textGlow 3s ease-in-out infinite alternate;
-        }
-        
-        @keyframes textGlow {
-            from { filter: drop-shadow(0 0 5px rgba(217, 119, 6, 0.3)); }
-            to { filter: drop-shadow(0 0 20px rgba(217, 119, 6, 0.8)); }
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            opacity: 0;
-            animation: fadeInUp 1.5s ease-out 0.5s forwards;
-        }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .cta-button {
-            background: linear-gradient(45deg, #d97706, #f59e0b);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(217, 119, 6, 0.3);
-            opacity: 0;
-            animation: fadeInUp 1.5s ease-out 1s forwards;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(217, 119, 6, 0.5);
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-10px) rotate(1deg); }
-            50% { transform: translateY(-5px) rotate(0deg); }
-            75% { transform: translateY(-15px) rotate(-1deg); }
-        }
-        
-        .floating-cow:nth-child(1) {
-            top: 20%;
-            right: 10%;
-            animation-delay: 0s;
-        }
-        
-        .floating-cow:nth-child(2) {
-            top: 60%;
-            right: 5%;
-            animation-delay: 2s;
-            animation-duration: 8s;
-        }
-        
-        .floating-cow:nth-child(3) {
-            top: 40%;
-            right: 20%;
-            animation-delay: 4s;
-            animation-duration: 10s;
-        }
-        
-        /* Product Section */
-        .product-section {
-            padding: 5rem 2rem;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            margin: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            animation: slideInUp 1s ease-out;
-        }
-        
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .product-section h2 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            background: linear-gradient(45deg, #d97706, #f59e0b);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .product-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            animation: cardSlideIn 0.6s ease-out;
-        }
-        
-        @keyframes cardSlideIn {
-            from { opacity: 0; transform: translateY(30px) scale(0.9); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-        
-        .product-card h3 {
-            color: #d97706;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        /* FSSAI Section */
-        .fssai-section {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 3rem 2rem;
-            margin: 2rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            text-align: center;
-            border: 2px solid #059669;
-        }
-        
-        .fssai-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .fssai-logo-large {
-            width: 120px;
-            height: 90px;
-            background: linear-gradient(45deg, #059669, #10b981);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1rem;
-            font-weight: bold;
-            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.3);
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-        
-        .fssai-info {
-            text-align: left;
-        }
-        
-        .fssai-info h3 {
-            color: #059669;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .fssai-license {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #333;
-            background: linear-gradient(45deg, #059669, #10b981);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-        }
-        
-        .fssai-description {
-            color: #666;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-        
-        /* Nutrition Section */
-        .nutrition-section {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 237, 74, 0.1));
-            margin: 2rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .nutrition-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .nutrition-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            animation: bounceIn 0.6s ease-out;
-        }
-        
-        @keyframes bounceIn {
-            0% { opacity: 0; transform: scale(0.3); }
-            50% { opacity: 1; transform: scale(1.05); }
-            70% { transform: scale(0.9); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-        
-        .nutrition-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-        
-        .nutrition-value {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #d97706;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Contact Section */
-        .contact-section {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 5rem 2rem;
-            margin: 2rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            text-align: center;
-        }
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .contact-card {
-            background: linear-gradient(45deg, #d97706, #f59e0b);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            animation: slideInRight 0.8s ease-out;
-        }
-        
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(217, 119, 6, 0.3);
-        }
-        
-        /* Footer */
-        .footer {
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 2rem;
-        }
-        
-        .footer-fssai {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .footer-fssai-logo {
-            width: 60px;
-            height: 45px;
-            background: #059669;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-        
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .fssai-header {
-                font-size: 0.8rem;
-            }
-            
-            .fssai-logo {
-                width: 35px;
-                height: 25px;
-            }
-            
-            .floating-cow {
-                display: none;
-            }
-            
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .fssai-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .fssai-info {
-                text-align: center;
-            }
-        }
-        
-        /* 3D Effects */
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-        }
-        
-        .hover-3d {
-            transition: all 0.3s ease;
-        }
-        
-        .hover-3d:hover {
-            transform: perspective(1000px) rotateX(10deg) rotateY(10deg) translateY(-10px);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASTRO — AI Security Operations Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #020408;
+    --bg2: #060d18;
+    --bg3: #0a1628;
+    --panel: #0d1f35;
+    --border: #1a3a5c;
+    --accent: #00d4ff;
+    --accent2: #0066ff;
+    --accent3: #7b2fff;
+    --green: #00ff88;
+    --red: #ff3366;
+    --yellow: #ffcc00;
+    --text: #e8f4ff;
+    --text2: #7aa8cc;
+    --text3: #3a6080;
+    --glow: 0 0 20px rgba(0,212,255,0.3);
+    --glow2: 0 0 40px rgba(0,212,255,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Animated background grid */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Ambient orbs */
+  .orb1 {
+    position: fixed; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,102,255,0.08) 0%, transparent 70%);
+    top: -200px; left: -100px; pointer-events: none; z-index: 0;
+    animation: float1 8s ease-in-out infinite;
+  }
+  .orb2 {
+    position: fixed; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(123,47,255,0.07) 0%, transparent 70%);
+    bottom: -100px; right: -100px; pointer-events: none; z-index: 0;
+    animation: float2 10s ease-in-out infinite;
+  }
+  @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,20px)} }
+  @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-20px,30px)} }
+
+  /* Scanline effect */
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+    pointer-events: none; z-index: 9999;
+  }
+
+  /* TOP NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 32px; height: 60px;
+    background: rgba(2,4,8,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px; font-weight: 800;
+    letter-spacing: 0.15em;
+    background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    text-shadow: none;
+  }
+
+  .nav-logo span {
+    font-size: 9px; font-weight: 400; letter-spacing: 0.3em;
+    color: var(--text2); display: block; margin-top: -4px;
+    font-family: 'JetBrains Mono', monospace;
+    -webkit-text-fill-color: var(--text2);
+  }
+
+  .nav-status {
+    display: flex; align-items: center; gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--green);
+  }
+  .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+    animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,255,136,0.4)} 70%{opacity:0.8;box-shadow:0 0 0 6px rgba(0,255,136,0)} }
+
+  .nav-api {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .api-input {
+    background: var(--bg3); border: 1px solid var(--border);
+    color: var(--text); padding: 6px 12px; border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    width: 200px; outline: none;
+    transition: border-color 0.2s;
+  }
+  .api-input:focus { border-color: var(--accent); }
+  .api-input::placeholder { color: var(--text3); }
+
+  .btn-save {
+    padding: 6px 14px; border-radius: 6px;
+    background: linear-gradient(135deg, var(--accent2), var(--accent3));
+    color: #fff; border: none; cursor: pointer;
+    font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.05em; transition: opacity 0.2s;
+  }
+  .btn-save:hover { opacity: 0.85; }
+
+  /* SIDEBAR */
+  .layout { display: flex; padding-top: 60px; min-height: 100vh; position: relative; z-index: 1; }
+
+  aside {
+    width: 220px; min-height: calc(100vh - 60px);
+    background: rgba(6,13,24,0.8); backdrop-filter: blur(10px);
+    border-right: 1px solid var(--border);
+    padding: 24px 0; position: fixed; top: 60px; left: 0; bottom: 0;
+    overflow-y: auto;
+  }
+
+  .sidebar-section {
+    padding: 0 16px 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; color: var(--text3); letter-spacing: 0.3em;
+    text-transform: uppercase; margin-top: 16px;
+  }
+
+  .nav-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 20px; cursor: pointer;
+    font-size: 13px; color: var(--text2);
+    transition: all 0.2s; border-left: 2px solid transparent;
+    user-select: none;
+  }
+  .nav-item:hover { color: var(--text); background: rgba(0,212,255,0.05); }
+  .nav-item.active {
+    color: var(--accent); border-left-color: var(--accent);
+    background: rgba(0,212,255,0.08);
+  }
+  .nav-icon { font-size: 16px; width: 20px; text-align: center; }
+
+  /* MAIN CONTENT */
+  main { margin-left: 220px; flex: 1; padding: 32px; }
+
+  /* PAGES */
+  .page { display: none; animation: fadeIn 0.3s ease; }
+  .page.active { display: block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+  /* PAGE HEADER */
+  .page-header { margin-bottom: 32px; }
+  .page-tag {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    color: var(--accent); letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 8px;
+  }
+  .page-title {
+    font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 800;
+    line-height: 1.1; color: var(--text);
+  }
+  .page-sub { font-size: 14px; color: var(--text2); margin-top: 8px; }
+
+  /* CARDS */
+  .card {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 12px; padding: 24px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: rgba(0,212,255,0.3); }
+
+  .card-title {
+    font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700;
+    color: var(--text); margin-bottom: 4px;
+  }
+  .card-sub { font-size: 12px; color: var(--text2); margin-bottom: 16px; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+  /* HERO — HOME */
+  .hero {
+    background: linear-gradient(135deg, rgba(0,102,255,0.08), rgba(123,47,255,0.08));
+    border: 1px solid var(--border); border-radius: 16px;
+    padding: 40px; margin-bottom: 24px; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: 'ASTRO';
+    position: absolute; right: -20px; top: -20px;
+    font-family: 'Syne', sans-serif; font-size: 140px; font-weight: 800;
+    color: rgba(0,212,255,0.03); pointer-events: none; line-height: 1;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3);
+    color: var(--green); padding: 4px 12px; border-radius: 20px;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif; font-size: 42px; font-weight: 800;
+    line-height: 1.1; margin-bottom: 12px;
+    background: linear-gradient(135deg, #fff 0%, var(--accent) 50%, var(--accent3) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero p { font-size: 15px; color: var(--text2); max-width: 600px; line-height: 1.7; margin-bottom: 24px; }
+
+  .hero-stats { display: flex; gap: 32px; }
+  .stat-item { }
+  .stat-num {
+    font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800;
+    color: var(--accent);
+  }
+  .stat-label { font-size: 11px; color: var(--text3); font-family: 'JetBrains Mono', monospace; }
+
+  /* PROFILE CARD */
+  .profile-card {
+    background: linear-gradient(135deg, rgba(0,102,255,0.1), rgba(123,47,255,0.1));
+    border: 1px solid rgba(0,212,255,0.2); border-radius: 16px; padding: 32px;
+    margin-bottom: 24px;
+  }
+  .profile-header { display: flex; align-items: center; gap: 24px; margin-bottom: 24px; }
+  .avatar {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent2), var(--accent3));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; color: #fff;
+    flex-shrink: 0; box-shadow: 0 0 30px rgba(0,102,255,0.4);
+  }
+  .profile-name {
+    font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 800; color: var(--text);
+  }
+  .profile-role { font-size: 13px; color: var(--accent); margin-top: 2px; }
+  .profile-loc { font-size: 12px; color: var(--text2); margin-top: 4px; }
+
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .skill-tag {
+    padding: 4px 12px; border-radius: 20px;
+    border: 1px solid var(--border); font-size: 11px; color: var(--text2);
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(0,212,255,0.04);
+  }
+  .skill-tag.hot { border-color: rgba(0,212,255,0.4); color: var(--accent); background: rgba(0,212,255,0.08); }
+
+  /* TOOL GRID */
+  .tool-card {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px; transition: all 0.2s; cursor: default;
+  }
+  .tool-card:hover { border-color: rgba(0,212,255,0.4); transform: translateY(-2px); box-shadow: var(--glow2); }
+  .tool-name { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); }
+  .tool-cat { font-size: 10px; color: var(--accent); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .tool-desc { font-size: 12px; color: var(--text2); line-height: 1.5; }
+
+  /* COMPLIANCE */
+  .compliance-item {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 20px;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .compliance-item:hover { border-color: var(--accent); box-shadow: var(--glow2); }
+  .compliance-name { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; }
+  .compliance-full { font-size: 11px; color: var(--text2); margin-top: 2px; margin-bottom: 10px; }
+  .compliance-domains { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .domain-chip {
+    padding: 2px 8px; border-radius: 4px; font-size: 10px;
+    background: rgba(0,212,255,0.08); color: var(--accent); border: 1px solid rgba(0,212,255,0.2);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* AI CHAT */
+  .chat-container {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden;
+  }
+  .chat-messages {
+    height: 420px; overflow-y: auto; padding: 24px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .chat-messages::-webkit-scrollbar { width: 4px; }
+  .chat-messages::-webkit-scrollbar-track { background: transparent; }
+  .chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .msg { display: flex; gap: 12px; }
+  .msg.user { flex-direction: row-reverse; }
+  .msg-avatar {
+    width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 14px;
+  }
+  .msg.assistant .msg-avatar { background: linear-gradient(135deg, var(--accent2), var(--accent3)); }
+  .msg.user .msg-avatar { background: linear-gradient(135deg, var(--green), #00aa66); }
+  .msg-bubble {
+    max-width: 75%; padding: 12px 16px; border-radius: 12px;
+    font-size: 13px; line-height: 1.6;
+  }
+  .msg.assistant .msg-bubble { background: var(--bg3); border: 1px solid var(--border); }
+  .msg.user .msg-bubble { background: rgba(0,102,255,0.2); border: 1px solid rgba(0,102,255,0.3); }
+
+  .chat-input-row {
+    display: flex; gap: 12px; padding: 16px; border-top: 1px solid var(--border);
+    background: rgba(2,4,8,0.5);
+  }
+  .chat-input {
+    flex: 1; background: var(--bg3); border: 1px solid var(--border);
+    color: var(--text); padding: 12px 16px; border-radius: 8px;
+    font-family: 'Inter', sans-serif; font-size: 13px; outline: none; resize: none;
+    transition: border-color 0.2s;
+  }
+  .chat-input:focus { border-color: var(--accent); }
+  .chat-input::placeholder { color: var(--text3); }
+
+  .btn-send {
+    padding: 12px 20px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent2), var(--accent3));
+    color: #fff; border: none; cursor: pointer; font-weight: 600;
+    transition: opacity 0.2s; font-family: 'Syne', sans-serif; font-size: 13px;
+  }
+  .btn-send:hover { opacity: 0.85; }
+  .btn-send:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* REPORT BUILDER */
+  .report-section {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+  }
+  .report-tabs { display: flex; border-bottom: 1px solid var(--border); }
+  .report-tab {
+    padding: 12px 20px; font-size: 12px; font-family: 'Syne', sans-serif;
+    font-weight: 600; color: var(--text2); cursor: pointer; border-bottom: 2px solid transparent;
+    transition: all 0.2s; letter-spacing: 0.05em;
+  }
+  .report-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .report-tab:hover { color: var(--text); }
+
+  .report-form { padding: 24px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label {
+    font-size: 11px; font-family: 'JetBrains Mono', monospace;
+    color: var(--text2); letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .form-input, .form-select, .form-textarea {
+    background: var(--bg3); border: 1px solid var(--border);
+    color: var(--text); padding: 10px 12px; border-radius: 8px;
+    font-family: 'Inter', sans-serif; font-size: 13px; outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent); }
+  .form-select { appearance: none; cursor: pointer; }
+  .form-textarea { resize: vertical; min-height: 80px; }
+  .form-full { grid-column: 1 / -1; }
+
+  .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; }
+  .checkbox-item { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+  .checkbox-item input { accent-color: var(--accent); cursor: pointer; }
+  .checkbox-item span { font-size: 12px; color: var(--text2); }
+
+  .btn-generate {
+    padding: 12px 28px; border-radius: 8px; border: none; cursor: pointer;
+    background: linear-gradient(135deg, var(--accent2), var(--accent3));
+    color: #fff; font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700;
+    letter-spacing: 0.05em; transition: all 0.2s; width: 100%;
+    box-shadow: 0 4px 20px rgba(0,102,255,0.3);
+  }
+  .btn-generate:hover { transform: translateY(-1px); box-shadow: 0 6px 30px rgba(0,102,255,0.4); }
+  .btn-generate:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+  /* REPORT OUTPUT */
+  .report-output {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 12px;
+    padding: 32px; margin-top: 24px; display: none;
+    font-family: 'Inter', sans-serif;
+  }
+  .report-output.show { display: block; animation: fadeIn 0.4s ease; }
+  .report-output h2 { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+  .report-output .report-meta { font-size: 12px; color: var(--text2); margin-bottom: 24px; font-family: 'JetBrains Mono', monospace; }
+  .report-output h3 { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--accent); margin: 20px 0 10px; }
+  .report-output p { font-size: 13px; color: var(--text2); line-height: 1.7; margin-bottom: 10px; }
+  .report-output ul { padding-left: 20px; color: var(--text2); font-size: 13px; line-height: 1.8; }
+  .report-output .severity-critical { color: var(--red); font-weight: 700; }
+  .report-output .severity-high { color: #ff6600; font-weight: 700; }
+  .report-output .severity-medium { color: var(--yellow); font-weight: 700; }
+  .report-output .severity-low { color: var(--green); font-weight: 700; }
+
+  .btn-download {
+    padding: 10px 24px; border-radius: 8px; border: 1px solid var(--accent);
+    background: transparent; color: var(--accent); cursor: pointer;
+    font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600;
+    transition: all 0.2s; margin-top: 20px;
+  }
+  .btn-download:hover { background: rgba(0,212,255,0.1); }
+
+  /* LOADING SPINNER */
+  .spinner {
+    display: inline-block; width: 16px; height: 16px;
+    border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff;
+    border-radius: 50%; animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* SEVERITY BADGES */
+  .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 10px; font-family: 'JetBrains Mono', monospace; font-weight: 500;
+  }
+  .badge-critical { background: rgba(255,51,102,0.15); color: var(--red); border: 1px solid rgba(255,51,102,0.3); }
+  .badge-high { background: rgba(255,102,0,0.15); color: #ff6600; border: 1px solid rgba(255,102,0,0.3); }
+  .badge-medium { background: rgba(255,204,0,0.15); color: var(--yellow); border: 1px solid rgba(255,204,0,0.3); }
+  .badge-low { background: rgba(0,255,136,0.15); color: var(--green); border: 1px solid rgba(0,255,136,0.3); }
+
+  /* TERMINAL BLOCK */
+  .terminal {
+    background: #000; border: 1px solid var(--border); border-radius: 8px; padding: 16px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--green);
+    line-height: 1.8; margin: 16px 0;
+  }
+  .terminal .cmd { color: var(--accent); }
+  .terminal .comment { color: var(--text3); }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--border); margin: 24px 0; }
+
+  /* QUICK ACTIONS */
+  .quick-action {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px; cursor: pointer; transition: all 0.2s; text-align: center;
+  }
+  .quick-action:hover { border-color: var(--accent); background: rgba(0,212,255,0.05); }
+  .quick-action-icon { font-size: 24px; margin-bottom: 8px; }
+  .quick-action-label { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; color: var(--text); }
+  .quick-action-desc { font-size: 11px; color: var(--text2); margin-top: 4px; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* TOAST */
+  .toast {
+    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+    padding: 12px 20px; border-radius: 8px;
+    background: var(--panel); border: 1px solid var(--green);
+    color: var(--green); font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    animation: slideIn 0.3s ease; display: none;
+  }
+  .toast.show { display: block; }
+  @keyframes slideIn { from{transform:translateY(20px);opacity:0} to{transform:translateY(0);opacity:1} }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    aside { display: none; }
+    main { margin-left: 0; }
+    .grid2, .grid3 { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  /* TYPING INDICATOR */
+  .typing-dots span {
+    display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--text2); margin: 0 2px;
+    animation: bounce 1.2s infinite;
+  }
+  .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
+
+  .section-spacer { margin-bottom: 24px; }
+
+  pre { white-space: pre-wrap; word-break: break-word; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+
+  .vapt-phase { margin-bottom: 20px; }
+  .vapt-phase-title { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .phase-num { background: var(--accent); color: #000; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; }
+
+  .finding-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+  .finding-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+  .finding-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--text); }
+  .finding-body { font-size: 12px; color: var(--text2); line-height: 1.6; }
+</style>
 </head>
 <body>
-    <div class="bg-animation"></div>
-    
-    <header>
-        <nav>
-            <div class="logo">SWARNADHENU</div>
-            <div class="fssai-header">
-                <div class="fssai-logo">FSSAI</div>
-                <span>Lic: 21425870000532</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#product">Product</a></li>
-                <li><a href="#fssai">FSSAI</a></li>
-                <li><a href="#nutrition">Nutrition</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>SWARNADHENU</h1>
-            <p>Premium A2 Gir Cow Ghee crafted with traditional bilona methods. Pure, natural, and rich in heritage - bringing you the authentic taste of traditional Indian ghee.</p>
-            <button class="cta-button hover-3d">Discover Pure Tradition</button>
+
+<div class="orb1"></div>
+<div class="orb2"></div>
+
+<!-- TOP NAV -->
+<nav>
+  <div class="nav-logo">ASTRO <span>AI SECURITY OPERATIONS</span></div>
+  <div class="nav-status"><div class="pulse"></div> SYSTEM ONLINE</div>
+  <div class="nav-api">
+    <input class="api-input" type="password" id="apiKey" placeholder="sk-ant-... (Anthropic API Key)" />
+    <button class="btn-save" onclick="saveKey()">SAVE KEY</button>
+  </div>
+</nav>
+
+<!-- LAYOUT -->
+<div class="layout">
+  <!-- SIDEBAR -->
+  <aside>
+    <div class="sidebar-section">OVERVIEW</div>
+    <div class="nav-item active" onclick="showPage('home')">
+      <span class="nav-icon">🏠</span> Dashboard
+    </div>
+    <div class="nav-item" onclick="showPage('profile')">
+      <span class="nav-icon">👤</span> About / Profile
+    </div>
+
+    <div class="sidebar-section">OPERATIONS</div>
+    <div class="nav-item" onclick="showPage('ai')">
+      <span class="nav-icon">🤖</span> AI Assistant
+    </div>
+    <div class="nav-item" onclick="showPage('vapt')">
+      <span class="nav-icon">🔍</span> VAPT Toolkit
+    </div>
+    <div class="nav-item" onclick="showPage('report')">
+      <span class="nav-icon">📄</span> Report Builder
+    </div>
+
+    <div class="sidebar-section">STANDARDS</div>
+    <div class="nav-item" onclick="showPage('compliance')">
+      <span class="nav-icon">📋</span> Compliance
+    </div>
+    <div class="nav-item" onclick="showPage('tools')">
+      <span class="nav-icon">🛠</span> Tool Library
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- HOME PAGE -->
+    <div class="page active" id="page-home">
+      <div class="hero">
+        <div class="hero-badge"><div class="pulse"></div> OPERATIONAL</div>
+        <h1>ASTRO Security<br>Operations Platform</h1>
+        <p>AI-powered cybersecurity intelligence, automated VAPT reporting, compliance management, and threat analysis — built by Jasraj Choudhary for enterprise-grade security operations.</p>
+        <div class="hero-stats">
+          <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">VAPT Frameworks</div></div>
+          <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">Compliance Standards</div></div>
+          <div class="stat-item"><div class="stat-num">100+</div><div class="stat-label">Security Tools</div></div>
+          <div class="stat-item"><div class="stat-num">AI</div><div class="stat-label">Powered Reports</div></div>
         </div>
-    </section>
-    
-    <section class="product-section glass-effect fade-in" id="product">
-        <h2>Our Premium Ghee</h2>
-        <p>Made from the fresh milk of indigenous Indian Gir cows, churned using traditional bilona methods to preserve its rich taste, aroma, and nutritional value.</p>
-        
-        <div class="product-grid">
-            <div class="product-card hover-3d">
-                <h3>🐄 A2 Gir Cow Milk</h3>
-                <p>Sourced from indigenous Indian Gir cows known for their superior milk quality and A2 protein content.</p>
-            </div>
-            
-            <div class="product-card hover-3d">
-                <h3>🥛 Traditional Bilona Method</h3>
-                <p>Churned using age-old bilona techniques to preserve the natural goodness and authentic flavor.</p>
-            </div>
-            
-            <div class="product-card hover-3d">
-                <h3>🌿 100% Natural</h3>
-                <p>Free from additives and preservatives. Pure, natural ghee ideal for cooking, spreading, and daily wellness.</p>
-            </div>
+      </div>
+
+      <div class="grid3 section-spacer">
+        <div class="quick-action" onclick="showPage('ai')">
+          <div class="quick-action-icon">🤖</div>
+          <div class="quick-action-label">AI Assistant</div>
+          <div class="quick-action-desc">Ask anything cybersecurity</div>
         </div>
-    </section>
-    
-    <section class="fssai-section fade-in" id="fssai">
-        <div class="fssai-content">
-            <div class="fssai-logo-large">
-                FSSAI<br>CERTIFIED
-            </div>
-            <div class="fssai-info">
-                <h3>FSSAI Certified Quality</h3>
-                <div class="fssai-license">License No: 21425870000532</div>
-                <div class="fssai-description">
-                    Our products are manufactured under strict FSSAI guidelines ensuring the highest standards of food safety and quality. This certification guarantees that our A2 Gir Cow Ghee meets all regulatory requirements for consumer safety and nutritional standards.
-                </div>
-            </div>
+        <div class="quick-action" onclick="showPage('report')">
+          <div class="quick-action-icon">📄</div>
+          <div class="quick-action-label">Generate Report</div>
+          <div class="quick-action-desc">VAPT & Compliance PDFs</div>
         </div>
-    </section>
-    
-    <section class="nutrition-section fade-in" id="nutrition">
-        <h2>Nutrition Facts (Per 100g)</h2>
-        
-        <div class="nutrition-grid">
-            <div class="nutrition-item hover-3d">
-                <div class="nutrition-value">722 kcal</div>
-                <div>Energy</div>
-            </div>
-            
-            <div class="nutrition-item hover-3d">
-                <div class="nutrition-value">99.6g</div>
-                <div>Total Fat</div>
-            </div>
-            
-            <div class="nutrition-item hover-3d">
-                <div class="nutrition-value">47.9g</div>
-                <div>Saturated Fat</div>
-            </div>
-            
-            <div class="nutrition-item hover-3d">
-                <div class="nutrition-value">0.0g</div>
-                <div>Trans Fat</div>
-            </div>
-            
-            <div class="nutrition-item hover-3d">
-                <div class="nutrition-value">130mg</div>
-                <div>Cholesterol</div>
-            </div>
-            
-            <div class="nutrition-item hover-3d">
-                <div class="nutrition-value">3mg</div>
-                <div>Sodium</div>
-            </div>
-            
-            <div class="nutrition-item hover-3d">
-                <div class="nutrition-value">0.0g</div>
-                <div>Carbohydrates</div>
-            </div>
-            
-            <div class="nutrition-item hover-3d">
-                <div class="nutrition-value">0.0g</div>
-                <div>Protein</div>
-            </div>
+        <div class="quick-action" onclick="showPage('compliance')">
+          <div class="quick-action-icon">🛡</div>
+          <div class="quick-action-label">Compliance Check</div>
+          <div class="quick-action-desc">PCI DSS, ISO, NIST & more</div>
         </div>
-    </section>
-    
-    <section class="contact-section fade-in" id="contact">
-        <h2>Contact Sona Organic</h2>
-        <p><strong>Manufactured & Marketed By: Jasraj Choudhary</strong></p>
-        
-        <div class="contact-info">
-            <div class="contact-card hover-3d">
-                <h3>📍 Address</h3>
-                <p>Lonsara Khurd<br>District - Barwani<br>Madhya Pradesh, India</p>
-            </div>
-            
-            <div class="contact-card hover-3d">
-                <h3>📞 Phone</h3>
-                <p>+91-8720884293<br>+91-9981323225</p>
-            </div>
-            
-            <div class="contact-card hover-3d">
-                <h3>✉️ Email</h3>
-                <p>organicsona@gmail.com</p>
-            </div>
-            
-            <div class="contact-card hover-3d">
-                <h3>💰 Price</h3>
-                <p>MRP: ₹3,000/-<br>(Inclusive of all taxes)<br>Batch No: SG0625</p>
-            </div>
+        <div class="quick-action" onclick="showPage('vapt')">
+          <div class="quick-action-icon">🔍</div>
+          <div class="quick-action-label">VAPT Guide</div>
+          <div class="quick-action-desc">Methodology & tools</div>
         </div>
-    </section>
-    
-    <footer class="footer">
-        <div class="footer-fssai">
-            <div class="footer-fssai-logo">FSSAI</div>
-            <span>Licensed Food Business | License No: 21425870000532</span>
+        <div class="quick-action" onclick="showPage('tools')">
+          <div class="quick-action-icon">🛠</div>
+          <div class="quick-action-label">Tool Library</div>
+          <div class="quick-action-desc">100+ security tools</div>
         </div>
-        <p>&copy; 2025 Swarnadhenu - Sona Organic. All rights reserved.</p>
-    </footer>
-    
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Add click effect to CTA button
-        document.querySelector('.cta-button').addEventListener('click', function() {
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
-        });
-        
-        // Dynamic background color change on scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            const bgAnimation = document.querySelector('.bg-animation');
-            bgAnimation.style.transform = `translateY(${rate}px)`;
-        });
-    </script>
+        <div class="quick-action" onclick="showPage('profile')">
+          <div class="quick-action-icon">👤</div>
+          <div class="quick-action-label">Analyst Profile</div>
+          <div class="quick-action-desc">Jasraj Choudhary</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">⚡ Getting Started</div>
+        <div class="card-sub">To unlock AI features, paste your Anthropic API key in the top-right corner and click SAVE KEY.</div>
+        <div class="terminal">
+          <span class="comment"># ASTRO v1.0 — AI Security Operations Platform</span><br>
+          <span class="cmd">$</span> Enter your Anthropic API key above to enable AI<br>
+          <span class="cmd">$</span> Navigate using the sidebar to explore all modules<br>
+          <span class="cmd">$</span> Use Report Builder to generate professional PDFs<br>
+          <span class="cmd">$</span> AI Assistant answers any cybersecurity query<br>
+          <span class="comment"># All reports are downloadable and client-ready</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILE PAGE -->
+    <div class="page" id="page-profile">
+      <div class="page-header">
+        <div class="page-tag">// ANALYST PROFILE</div>
+        <div class="page-title">About ASTRO &<br>Security Analyst</div>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-header">
+          <div class="avatar">JC</div>
+          <div>
+            <div class="profile-name">Jasraj Choudhary</div>
+            <div class="profile-role">Cybersecurity Professional · Founder of ASTRO</div>
+            <div class="profile-loc">📍 Bengaluru, Karnataka · jasrajchoudhary314@gmail.com</div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:var(--text2);line-height:1.7;">
+          Results-driven Cybersecurity Professional with 2+ years of hands-on experience in vulnerability assessment, penetration testing, threat intelligence, and incident response. Proven track record of reducing security risks by 30% through proactive threat analysis and security policy enforcement. Skilled in leveraging industry-leading tools including Palo Alto Networks, SIEM platforms, and cloud security solutions. Active CTF player with 4+ years of practical ethical hacking experience on TryHackMe.
+        </p>
+        <div class="skill-tags" style="margin-top:16px;">
+          <span class="skill-tag hot">VAPT</span>
+          <span class="skill-tag hot">Penetration Testing</span>
+          <span class="skill-tag hot">SIEM · Splunk · QRadar</span>
+          <span class="skill-tag">Threat Intelligence</span>
+          <span class="skill-tag">Incident Response</span>
+          <span class="skill-tag">Digital Forensics</span>
+          <span class="skill-tag">NIST · ISO 27001</span>
+          <span class="skill-tag">MITRE ATT&CK</span>
+          <span class="skill-tag">Python · Bash · PowerShell</span>
+          <span class="skill-tag">Kali Linux · Parrot OS</span>
+          <span class="skill-tag hot">Nmap · Metasploit · Burp Suite</span>
+          <span class="skill-tag">AWS Security</span>
+        </div>
+      </div>
+
+      <div class="grid2 section-spacer">
+        <div class="card">
+          <div class="card-title">💼 Experience</div>
+          <div class="card-sub">Professional Background</div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div>
+              <div style="font-size:13px;color:var(--accent);font-weight:600;">Security Analyst Intern</div>
+              <div style="font-size:12px;color:var(--text);margin:2px 0;">HPH Technology LLP, Bengaluru</div>
+              <div style="font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;">Dec 2024 – May 2025</div>
+              <div style="font-size:12px;color:var(--text2);margin-top:6px;line-height:1.6;">50+ system VAPT • 500+ alerts/day via Splunk/QRadar • 25% faster incident response • 35% malware reduction</div>
+            </div>
+            <div class="divider" style="margin:8px 0;"></div>
+            <div>
+              <div style="font-size:13px;color:var(--accent);font-weight:600;">Security Researcher</div>
+              <div style="font-size:12px;color:var(--text);">The Techie Media, Remote</div>
+              <div style="font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;">Sep 2023 – Sep 2024</div>
+              <div style="font-size:12px;color:var(--text2);margin-top:6px;line-height:1.6;">20+ research articles published • Threat intelligence • Incident response playbooks</div>
+            </div>
+            <div class="divider" style="margin:8px 0;"></div>
+            <div>
+              <div style="font-size:13px;color:var(--accent);font-weight:600;">Cybersecurity Intern</div>
+              <div style="font-size:12px;color:var(--text);">Uttar Pradesh Police, Cyber Division</div>
+              <div style="font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;">June 2025</div>
+              <div style="font-size:12px;color:var(--text2);margin-top:6px;line-height:1.6;">Digital forensics • Cyber crime investigation • Community outreach</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">🏆 Certifications & Achievements</div>
+          <div class="card-sub">Verified credentials</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px;background:var(--bg3);border-radius:6px;">
+              <div>
+                <div style="font-size:12px;color:var(--text);font-weight:600;">Ethical Hacking Essentials (EHE)</div>
+                <div style="font-size:11px;color:var(--text3);">EC-Council • Top 10%</div>
+              </div>
+              <span class="badge badge-low">ACTIVE</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px;background:var(--bg3);border-radius:6px;">
+              <div>
+                <div style="font-size:12px;color:var(--text);font-weight:600;">Network Defense Essentials (NDE)</div>
+                <div style="font-size:11px;color:var(--text3);">EC-Council</div>
+              </div>
+              <span class="badge badge-low">ACTIVE</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px;background:var(--bg3);border-radius:6px;">
+              <div>
+                <div style="font-size:12px;color:var(--text);font-weight:600;">CySA+: Security Operations</div>
+                <div style="font-size:11px;color:var(--text3);">Cybrary</div>
+              </div>
+              <span class="badge badge-low">ACTIVE</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px;background:var(--bg3);border-radius:6px;">
+              <div>
+                <div style="font-size:12px;color:var(--text);font-weight:600;">CEH — Certified Ethical Hacker</div>
+                <div style="font-size:11px;color:var(--text3);">EC-Council</div>
+              </div>
+              <span class="badge badge-medium">IN PROGRESS</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px;background:var(--bg3);border-radius:6px;">
+              <div>
+                <div style="font-size:12px;color:var(--text);font-weight:600;">CompTIA Security+</div>
+                <div style="font-size:11px;color:var(--text3);">CompTIA</div>
+              </div>
+              <span class="badge badge-medium">IN PROGRESS</span>
+            </div>
+            <div style="padding:10px;background:rgba(0,255,136,0.05);border:1px solid rgba(0,255,136,0.2);border-radius:6px;">
+              <div style="font-size:12px;color:var(--green);font-weight:600;">🎯 200+ CTF Challenges Solved</div>
+              <div style="font-size:11px;color:var(--text3);margin-top:2px;">TryHackMe — Top Practitioner</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🚀 Projects</div>
+        <div class="card-sub">Open-source security tools</div>
+        <div class="grid2">
+          <div style="padding:16px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;">
+            <div style="font-size:13px;color:var(--accent);font-weight:700;">Network Vulnerability Scanner</div>
+            <div style="font-size:12px;color:var(--text2);margin-top:6px;line-height:1.6;">Python-based automated scanner detecting open ports, service misconfigurations, and security exploits. Reduced manual VAPT effort by 40%.</div>
+            <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="domain-chip">Python</span><span class="domain-chip">Nmap</span><span class="domain-chip">Wireshark</span>
+            </div>
+          </div>
+          <div style="padding:16px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;">
+            <div style="font-size:13px;color:var(--accent);font-weight:700;">Incident Response Simulation Platform</div>
+            <div style="font-size:12px;color:var(--text2);margin-top:6px;line-height:1.6;">Interactive training platform simulating real-world breaches using MITRE ATT&CK. 10+ attack scenarios including ransomware, phishing, APT attacks.</div>
+            <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="domain-chip">Python</span><span class="domain-chip">MITRE ATT&CK</span><span class="domain-chip">SIEM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI ASSISTANT PAGE -->
+    <div class="page" id="page-ai">
+      <div class="page-header">
+        <div class="page-tag">// AI ENGINE</div>
+        <div class="page-title">ASTRO AI Assistant</div>
+        <div class="page-sub">Cybersecurity intelligence powered by Claude AI. Ask about vulnerabilities, exploits, tools, compliance, or generate security content.</div>
+      </div>
+
+      <div class="grid3 section-spacer" style="margin-bottom:20px;">
+        <div class="quick-action" onclick="askPreset('Explain the OWASP Top 10 vulnerabilities for 2024 with examples and remediation steps.')">
+          <div class="quick-action-icon">🕸</div>
+          <div class="quick-action-label">OWASP Top 10</div>
+          <div class="quick-action-desc">2024 web vulnerabilities</div>
+        </div>
+        <div class="quick-action" onclick="askPreset('Explain the MITRE ATT&CK framework with tactics and techniques used by real threat actors.')">
+          <div class="quick-action-icon">🎯</div>
+          <div class="quick-action-label">MITRE ATT&CK</div>
+          <div class="quick-action-desc">Tactics & techniques</div>
+        </div>
+        <div class="quick-action" onclick="askPreset('What are the phases of a professional penetration test and what tools are used in each phase?')">
+          <div class="quick-action-icon">🔐</div>
+          <div class="quick-action-label">Pentest Phases</div>
+          <div class="quick-action-desc">Methodology overview</div>
+        </div>
+      </div>
+
+      <div class="chat-container">
+        <div class="chat-messages" id="chatMessages">
+          <div class="msg assistant">
+            <div class="msg-avatar">🤖</div>
+            <div class="msg-bubble">
+              <strong style="color:var(--accent);">ASTRO AI Online.</strong><br>
+              I'm your cybersecurity intelligence engine. Ask me anything about:<br><br>
+              • Vulnerabilities, CVEs, exploits<br>
+              • VAPT methodology and tools<br>
+              • Compliance: PCI DSS, ISO 27001, NIST, OWASP<br>
+              • Threat intelligence & MITRE ATT&CK<br>
+              • Malware analysis, forensics, incident response<br>
+              • Generate security reports, policies, or playbooks<br><br>
+              <em style="color:var(--text3);font-size:11px;">Add your Anthropic API key in the top navigation to enable AI responses.</em>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-row">
+          <textarea class="chat-input" id="chatInput" placeholder="Ask about vulnerabilities, compliance, tools, exploits..." rows="2" onkeydown="handleEnter(event)"></textarea>
+          <button class="btn-send" id="sendBtn" onclick="sendMessage()">SEND</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- VAPT PAGE -->
+    <div class="page" id="page-vapt">
+      <div class="page-header">
+        <div class="page-tag">// PENETRATION TESTING</div>
+        <div class="page-title">VAPT Toolkit</div>
+        <div class="page-sub">Complete vulnerability assessment and penetration testing methodology, tools, and techniques.</div>
+      </div>
+
+      <div class="card section-spacer">
+        <div class="card-title">📋 VAPT Engagement Phases</div>
+        <div class="card-sub">Standard penetration testing methodology following PTES, OWASP, and NIST SP 800-115</div>
+
+        <div class="vapt-phase">
+          <div class="vapt-phase-title"><div class="phase-num">1</div> Pre-Engagement & Scoping</div>
+          <div class="terminal">
+            <span class="comment"># Define scope, rules of engagement, legal authorization</span><br>
+            Tools: Scope agreement templates, NDA, engagement letter<br>
+            Outputs: Signed authorization, IP ranges, test windows<br>
+            Frameworks: PTES, OSSTMM
+          </div>
+        </div>
+
+        <div class="vapt-phase">
+          <div class="vapt-phase-title"><div class="phase-num">2</div> Reconnaissance (OSINT)</div>
+          <div class="terminal">
+            <span class="cmd">$ theHarvester -d target.com -b all</span>  <span class="comment"># Email & subdomain harvesting</span><br>
+            <span class="cmd">$ maltego</span>  <span class="comment"># Graph-based OSINT</span><br>
+            <span class="cmd">$ shodan search org:"Target Corp"</span>  <span class="comment"># Internet-exposed assets</span><br>
+            <span class="cmd">$ whois target.com && dig target.com ANY</span>  <span class="comment"># DNS recon</span><br>
+            <span class="cmd">$ recon-ng</span>  <span class="comment"># Automated OSINT framework</span>
+          </div>
+        </div>
+
+        <div class="vapt-phase">
+          <div class="vapt-phase-title"><div class="phase-num">3</div> Scanning & Enumeration</div>
+          <div class="terminal">
+            <span class="cmd">$ nmap -sV -sC -A -p- 192.168.1.0/24</span>  <span class="comment"># Full port scan with scripts</span><br>
+            <span class="cmd">$ nessus</span>  <span class="comment"># Comprehensive vulnerability scanner</span><br>
+            <span class="cmd">$ nikto -h http://target.com</span>  <span class="comment"># Web server scanner</span><br>
+            <span class="cmd">$ enum4linux -a 192.168.1.100</span>  <span class="comment"># SMB/NetBIOS enumeration</span><br>
+            <span class="cmd">$ gobuster dir -u http://target.com -w /wordlists/common.txt</span>
+          </div>
+        </div>
+
+        <div class="vapt-phase">
+          <div class="vapt-phase-title"><div class="phase-num">4</div> Vulnerability Assessment</div>
+          <div class="terminal">
+            <span class="cmd">$ openvas</span>  <span class="comment"># OpenVAS/GVM vulnerability management</span><br>
+            <span class="cmd">$ burpsuite</span>  <span class="comment"># Web application vulnerability scanning</span><br>
+            <span class="cmd">$ sqlmap -u "http://target.com/page?id=1" --dbs</span>  <span class="comment"># SQL injection</span><br>
+            <span class="cmd">$ wpscan --url http://target.com</span>  <span class="comment"># WordPress scanner</span><br>
+            <span class="cmd">$ nuclei -u https://target.com -t /nuclei-templates/</span>
+          </div>
+        </div>
+
+        <div class="vapt-phase">
+          <div class="vapt-phase-title"><div class="phase-num">5</div> Exploitation</div>
+          <div class="terminal">
+            <span class="cmd">$ msfconsole</span>  <span class="comment"># Metasploit Framework</span><br>
+            <span class="cmd">msf> use exploit/multi/handler</span><br>
+            <span class="cmd">$ hydra -l admin -P rockyou.txt ssh://192.168.1.100</span>  <span class="comment"># Brute force</span><br>
+            <span class="cmd">$ john --wordlist=rockyou.txt hashes.txt</span>  <span class="comment"># Password cracking</span><br>
+            <span class="cmd">$ responder -I eth0</span>  <span class="comment"># LLMNR/NBT-NS poisoning</span>
+          </div>
+        </div>
+
+        <div class="vapt-phase">
+          <div class="vapt-phase-title"><div class="phase-num">6</div> Post-Exploitation & Lateral Movement</div>
+          <div class="terminal">
+            <span class="cmd">$ mimikatz # privilege::debug # sekurlsa::logonpasswords</span>  <span class="comment"># Credential dumping</span><br>
+            <span class="cmd">$ bloodhound</span>  <span class="comment"># AD attack path mapping</span><br>
+            <span class="cmd">$ impacket-psexec admin@192.168.1.100</span>  <span class="comment"># Remote execution</span><br>
+            <span class="cmd">$ crackmapexec smb 192.168.1.0/24</span>  <span class="comment"># Network sweep</span>
+          </div>
+        </div>
+
+        <div class="vapt-phase">
+          <div class="vapt-phase-title"><div class="phase-num">7</div> Reporting & Remediation</div>
+          <div class="terminal">
+            <span class="comment"># Document all findings with CVSS scores</span><br>
+            <span class="comment"># Map to CVE database and MITRE ATT&CK</span><br>
+            <span class="comment"># Provide risk ratings: Critical / High / Medium / Low</span><br>
+            <span class="comment"># Include remediation recommendations</span><br>
+            <span class="comment"># Use ASTRO Report Builder → Professional PDF</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🏷 Sample Findings</div>
+        <div class="card-sub">Example vulnerability documentation format</div>
+        <div class="finding-card">
+          <div class="finding-header">
+            <div class="finding-title">SQL Injection — Login Parameter</div>
+            <span class="badge badge-critical">CRITICAL</span>
+          </div>
+          <div class="finding-body">
+            <strong style="color:var(--text);">CVE:</strong> N/A (Custom) &nbsp;|&nbsp; <strong style="color:var(--text);">CVSS:</strong> 9.8<br>
+            <strong style="color:var(--text);">Description:</strong> The login endpoint is vulnerable to time-based blind SQL injection via the username parameter, allowing unauthenticated access to the full database.<br>
+            <strong style="color:var(--text);">Remediation:</strong> Implement parameterized queries, input validation, and WAF rules.
+          </div>
+        </div>
+        <div class="finding-card">
+          <div class="finding-header">
+            <div class="finding-title">Weak SSH Configuration (Root Login Enabled)</div>
+            <span class="badge badge-high">HIGH</span>
+          </div>
+          <div class="finding-body">
+            <strong style="color:var(--text);">CVE:</strong> CVE-2023-38408 &nbsp;|&nbsp; <strong style="color:var(--text);">CVSS:</strong> 7.5<br>
+            <strong style="color:var(--text);">Description:</strong> SSH daemon allows root login and uses weak cipher suites, exposing the server to brute force and man-in-the-middle attacks.<br>
+            <strong style="color:var(--text);">Remediation:</strong> Disable root SSH login, enforce key-based auth, update cipher list.
+          </div>
+        </div>
+        <div class="finding-card">
+          <div class="finding-header">
+            <div class="finding-title">Missing Security Headers (X-Frame-Options, CSP)</div>
+            <span class="badge badge-medium">MEDIUM</span>
+          </div>
+          <div class="finding-body">
+            <strong style="color:var(--text);">CVE:</strong> N/A &nbsp;|&nbsp; <strong style="color:var(--text);">CVSS:</strong> 4.3<br>
+            <strong style="color:var(--text);">Description:</strong> The web application does not implement recommended HTTP security headers, leaving it vulnerable to clickjacking and XSS attacks.<br>
+            <strong style="color:var(--text);">Remediation:</strong> Add X-Frame-Options: DENY, Content-Security-Policy, X-Content-Type-Options headers.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLIANCE PAGE -->
+    <div class="page" id="page-compliance">
+      <div class="page-header">
+        <div class="page-tag">// REGULATORY STANDARDS</div>
+        <div class="page-title">Compliance Frameworks</div>
+        <div class="page-sub">Click any standard to explore requirements, controls, and generate compliance gap analysis reports.</div>
+      </div>
+
+      <div class="grid2 section-spacer">
+        <div class="compliance-item" onclick="loadCompliance('pcidss')">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div>
+              <div class="compliance-name">PCI DSS v4.0</div>
+              <div class="compliance-full">Payment Card Industry Data Security Standard</div>
+            </div>
+            <span class="badge badge-critical">MANDATORY</span>
+          </div>
+          <div class="compliance-domains">
+            <span class="domain-chip">Network Security</span>
+            <span class="domain-chip">Cardholder Data</span>
+            <span class="domain-chip">Access Control</span>
+            <span class="domain-chip">Monitoring</span>
+            <span class="domain-chip">12 Requirements</span>
+          </div>
+        </div>
+
+        <div class="compliance-item" onclick="loadCompliance('iso27001')">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div>
+              <div class="compliance-name">ISO 27001:2022</div>
+              <div class="compliance-full">Information Security Management System</div>
+            </div>
+            <span class="badge badge-high">GLOBAL STD</span>
+          </div>
+          <div class="compliance-domains">
+            <span class="domain-chip">ISMS</span>
+            <span class="domain-chip">Risk Management</span>
+            <span class="domain-chip">Asset Management</span>
+            <span class="domain-chip">93 Controls</span>
+          </div>
+        </div>
+
+        <div class="compliance-item" onclick="loadCompliance('nist')">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div>
+              <div class="compliance-name">NIST CSF 2.0</div>
+              <div class="compliance-full">NIST Cybersecurity Framework</div>
+            </div>
+            <span class="badge badge-medium">FRAMEWORK</span>
+          </div>
+          <div class="compliance-domains">
+            <span class="domain-chip">Govern</span>
+            <span class="domain-chip">Identify</span>
+            <span class="domain-chip">Protect</span>
+            <span class="domain-chip">Detect</span>
+            <span class="domain-chip">Respond</span>
+            <span class="domain-chip">Recover</span>
+          </div>
+        </div>
+
+        <div class="compliance-item" onclick="loadCompliance('owasp')">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div>
+              <div class="compliance-name">OWASP Top 10</div>
+              <div class="compliance-full">Open Web Application Security Project</div>
+            </div>
+            <span class="badge badge-high">WEB APPS</span>
+          </div>
+          <div class="compliance-domains">
+            <span class="domain-chip">Injection</span>
+            <span class="domain-chip">Broken Auth</span>
+            <span class="domain-chip">XSS</span>
+            <span class="domain-chip">SSRF</span>
+            <span class="domain-chip">IDOR</span>
+          </div>
+        </div>
+
+        <div class="compliance-item" onclick="loadCompliance('hipaa')">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div>
+              <div class="compliance-name">HIPAA</div>
+              <div class="compliance-full">Health Insurance Portability & Accountability Act</div>
+            </div>
+            <span class="badge badge-critical">MANDATORY</span>
+          </div>
+          <div class="compliance-domains">
+            <span class="domain-chip">PHI Protection</span>
+            <span class="domain-chip">Security Rule</span>
+            <span class="domain-chip">Privacy Rule</span>
+            <span class="domain-chip">Healthcare</span>
+          </div>
+        </div>
+
+        <div class="compliance-item" onclick="loadCompliance('sox')">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div>
+              <div class="compliance-name">SOX / GDPR</div>
+              <div class="compliance-full">Sarbanes-Oxley / General Data Protection Regulation</div>
+            </div>
+            <span class="badge badge-high">REGULATORY</span>
+          </div>
+          <div class="compliance-domains">
+            <span class="domain-chip">Financial Data</span>
+            <span class="domain-chip">Data Privacy</span>
+            <span class="domain-chip">Audit Trails</span>
+            <span class="domain-chip">EU/Global</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compliance Detail Panel -->
+      <div id="complianceDetail" class="card" style="display:none;">
+        <div id="complianceContent"></div>
+      </div>
+    </div>
+
+    <!-- TOOLS PAGE -->
+    <div class="page" id="page-tools">
+      <div class="page-header">
+        <div class="page-tag">// SECURITY ARSENAL</div>
+        <div class="page-title">Tool Library</div>
+        <div class="page-sub">Comprehensive reference of cybersecurity tools used in professional engagements.</div>
+      </div>
+
+      <div style="margin-bottom:16px;">
+        <input class="form-input" id="toolSearch" placeholder="Search tools..." oninput="filterTools()" style="max-width:360px;">
+      </div>
+
+      <div id="toolGrid" class="grid3">
+        <!-- Tools injected by JS -->
+      </div>
+    </div>
+
+    <!-- REPORT BUILDER PAGE -->
+    <div class="page" id="page-report">
+      <div class="page-header">
+        <div class="page-tag">// REPORT ENGINE</div>
+        <div class="page-title">Report Builder</div>
+        <div class="page-sub">Generate professional, client-ready security reports. AI-powered analysis with downloadable output.</div>
+      </div>
+
+      <div class="report-section section-spacer">
+        <div class="report-tabs">
+          <div class="report-tab active" onclick="switchTab('vapt-tab')">VAPT Report</div>
+          <div class="report-tab" onclick="switchTab('compliance-tab')">Compliance Report</div>
+          <div class="report-tab" onclick="switchTab('executive-tab')">Executive Summary</div>
+        </div>
+
+        <!-- VAPT TAB -->
+        <div class="report-form" id="vapt-tab">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Client / Organization</label>
+              <input class="form-input" id="clientName" placeholder="Acme Corporation" />
+            </div>
+            <div class="form-group">
+              <label>Report Date</label>
+              <input class="form-input" id="reportDate" type="date" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Assessment Type</label>
+              <select class="form-select" id="assessmentType">
+                <option>External Network Penetration Test</option>
+                <option>Internal Network Penetration Test</option>
+                <option>Web Application VAPT</option>
+                <option>Mobile Application Security Assessment</option>
+                <option>Red Team Assessment</option>
+                <option>Cloud Security Assessment (AWS/Azure/GCP)</option>
+                <option>Social Engineering Assessment</option>
+                <option>Wireless Security Assessment</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Risk Rating</label>
+              <select class="form-select" id="riskRating">
+                <option>Critical</option>
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group form-full">
+              <label>Target Scope / IP Ranges / Domains</label>
+              <input class="form-input" id="targetScope" placeholder="192.168.1.0/24, app.example.com, api.example.com" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group form-full">
+              <label>Key Findings Summary (describe what you found)</label>
+              <textarea class="form-textarea" id="findingsSummary" placeholder="e.g. SQL injection on login page, weak SSH config, exposed admin panel, missing security headers..."></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group form-full">
+              <label>Tools Used</label>
+              <div class="checkbox-group">
+                <label class="checkbox-item"><input type="checkbox" value="Nmap" checked><span>Nmap</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="Nessus" checked><span>Nessus</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="Burp Suite" checked><span>Burp Suite</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="Metasploit"><span>Metasploit</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="Wireshark"><span>Wireshark</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="Nikto"><span>Nikto</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="SQLMap"><span>SQLMap</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="OpenVAS"><span>OpenVAS</span></label>
+              </div>
+            </div>
+          </div>
+          <button class="btn-generate" id="generateVaptBtn" onclick="generateReport('vapt')">🚀 GENERATE AI-POWERED VAPT REPORT</button>
+        </div>
+
+        <!-- COMPLIANCE TAB -->
+        <div class="report-form" id="compliance-tab" style="display:none;">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Organization Name</label>
+              <input class="form-input" id="compOrgName" placeholder="Acme Corporation" />
+            </div>
+            <div class="form-group">
+              <label>Industry</label>
+              <select class="form-select" id="compIndustry">
+                <option>Financial Services</option>
+                <option>Healthcare</option>
+                <option>E-Commerce / Retail</option>
+                <option>Technology / SaaS</option>
+                <option>Government</option>
+                <option>Manufacturing</option>
+                <option>Education</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group form-full">
+              <label>Compliance Standards to Assess</label>
+              <div class="checkbox-group">
+                <label class="checkbox-item"><input type="checkbox" value="PCI DSS v4.0" checked><span>PCI DSS v4.0</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="ISO 27001:2022" checked><span>ISO 27001:2022</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="NIST CSF 2.0" checked><span>NIST CSF 2.0</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="OWASP Top 10"><span>OWASP Top 10</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="HIPAA"><span>HIPAA</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="GDPR"><span>GDPR</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="SOX"><span>SOX</span></label>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group form-full">
+              <label>Current Security Posture (describe existing controls)</label>
+              <textarea class="form-textarea" id="secPosture" placeholder="e.g. We have a firewall, basic antivirus, no formal ISMS, passwords are rotated every 90 days..."></textarea>
+            </div>
+          </div>
+          <button class="btn-generate" id="generateCompBtn" onclick="generateReport('compliance')">🚀 GENERATE COMPLIANCE REPORT</button>
+        </div>
+
+        <!-- EXECUTIVE TAB -->
+        <div class="report-form" id="executive-tab" style="display:none;">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Company Name</label>
+              <input class="form-input" id="execCompany" placeholder="Acme Corporation" />
+            </div>
+            <div class="form-group">
+              <label>Executive Name / Title</label>
+              <input class="form-input" id="execName" placeholder="CEO / CISO / Board" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group form-full">
+              <label>Security Assessment Summary (paste key points)</label>
+              <textarea class="form-textarea" id="execSummary" placeholder="Overall security posture, top risks found, business impact, remediation priorities..."></textarea>
+            </div>
+          </div>
+          <button class="btn-generate" id="generateExecBtn" onclick="generateReport('executive')">🚀 GENERATE EXECUTIVE SUMMARY</button>
+        </div>
+      </div>
+
+      <!-- REPORT OUTPUT -->
+      <div class="report-output" id="reportOutput">
+        <div id="reportContent"></div>
+        <button class="btn-download" onclick="downloadReport()">⬇ Download as HTML Report</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ========== STATE ==========
+let API_KEY = '';
+let chatHistory = [];
+let currentReportContent = '';
+
+// ========== INIT ==========
+document.addEventListener('DOMContentLoaded', () => {
+  const saved = sessionStorage.getItem('astro_key');
+  if (saved) { API_KEY = saved; document.getElementById('apiKey').value = saved; }
+  document.getElementById('reportDate').value = new Date().toISOString().split('T')[0];
+  renderTools();
+});
+
+// ========== NAV ==========
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  const items = document.querySelectorAll('.nav-item');
+  items.forEach(item => {
+    if (item.getAttribute('onclick') && item.getAttribute('onclick').includes("'" + id + "'")) {
+      item.classList.add('active');
+    }
+  });
+  window.scrollTo(0, 0);
+}
+
+// ========== API KEY ==========
+function saveKey() {
+  const val = document.getElementById('apiKey').value.trim();
+  if (!val) { showToast('❌ Please enter a valid API key'); return; }
+  API_KEY = val;
+  sessionStorage.setItem('astro_key', val);
+  showToast('✅ API key saved successfully');
+}
+
+// ========== TOAST ==========
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ========== CHAT ==========
+function handleEnter(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+}
+
+function askPreset(q) {
+  showPage('ai');
+  document.getElementById('chatInput').value = q;
+  setTimeout(sendMessage, 100);
+}
+
+async function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  if (!API_KEY) { showToast('⚠ Please add your Anthropic API key first'); return; }
+
+  input.value = '';
+  appendMsg('user', msg);
+  chatHistory.push({ role: 'user', content: msg });
+
+  const sendBtn = document.getElementById('sendBtn');
+  sendBtn.disabled = true;
+  sendBtn.innerHTML = '<div class="spinner"></div>';
+
+  // Typing indicator
+  const typingId = 'typing-' + Date.now();
+  const typingDiv = document.createElement('div');
+  typingDiv.className = 'msg assistant'; typingDiv.id = typingId;
+  typingDiv.innerHTML = `<div class="msg-avatar">🤖</div><div class="msg-bubble"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
+  document.getElementById('chatMessages').appendChild(typingDiv);
+  scrollChat();
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': API_KEY, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: `You are ASTRO, an elite AI cybersecurity assistant built by Jasraj Choudhary, a Bengaluru-based cybersecurity professional. You specialize in VAPT, penetration testing, threat intelligence, compliance (PCI DSS, ISO 27001, NIST, OWASP, HIPAA, GDPR), malware analysis, incident response, digital forensics, and all areas of modern cybersecurity. You provide accurate, professional, technical answers. Use clear formatting with bullet points where helpful. Keep responses focused and actionable.`,
+        messages: chatHistory
+      })
+    });
+    const data = await res.json();
+    document.getElementById(typingId)?.remove();
+
+    if (data.error) { throw new Error(data.error.message); }
+
+    const reply = data.content[0].text;
+    chatHistory.push({ role: 'assistant', content: reply });
+    appendMsg('assistant', reply);
+  } catch (err) {
+    document.getElementById(typingId)?.remove();
+    appendMsg('assistant', '❌ Error: ' + err.message + '\n\nPlease check your API key and try again.');
+  }
+
+  sendBtn.disabled = false;
+  sendBtn.innerHTML = 'SEND';
+}
+
+function appendMsg(role, text) {
+  const box = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'msg ' + role;
+  const avatar = role === 'assistant' ? '🤖' : '👤';
+  const formatted = text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/`(.*?)`/g, '<code style="background:rgba(0,212,255,0.1);padding:1px 5px;border-radius:3px;font-family:JetBrains Mono,monospace;font-size:11px;">$1</code>');
+  div.innerHTML = `<div class="msg-avatar">${avatar}</div><div class="msg-bubble">${formatted}</div>`;
+  box.appendChild(div);
+  scrollChat();
+}
+
+function scrollChat() {
+  const box = document.getElementById('chatMessages');
+  box.scrollTop = box.scrollHeight;
+}
+
+// ========== REPORT TABS ==========
+function switchTab(tabId) {
+  ['vapt-tab','compliance-tab','executive-tab'].forEach(t => {
+    document.getElementById(t).style.display = t === tabId ? 'block' : 'none';
+  });
+  document.querySelectorAll('.report-tab').forEach((tab, i) => {
+    const tabs = ['vapt-tab','compliance-tab','executive-tab'];
+    tab.classList.toggle('active', tabs[i] === tabId);
+  });
+  document.getElementById('reportOutput').classList.remove('show');
+}
+
+// ========== REPORT GENERATION ==========
+async function generateReport(type) {
+  if (!API_KEY) { showToast('⚠ Please add your Anthropic API key first'); return; }
+
+  let prompt = '';
+  let btnId = '';
+
+  if (type === 'vapt') {
+    const client = document.getElementById('clientName').value || 'Client Organization';
+    const date = document.getElementById('reportDate').value;
+    const assessment = document.getElementById('assessmentType').value;
+    const risk = document.getElementById('riskRating').value;
+    const scope = document.getElementById('targetScope').value || 'As defined in SOW';
+    const findings = document.getElementById('findingsSummary').value || 'General security assessment';
+    const tools = Array.from(document.querySelectorAll('#vapt-tab input[type=checkbox]:checked')).map(c => c.value).join(', ');
+    btnId = 'generateVaptBtn';
+    prompt = `Generate a professional VAPT (Vulnerability Assessment and Penetration Testing) report with this info:
+Client: ${client}
+Date: ${date}
+Assessment Type: ${assessment}
+Overall Risk Rating: ${risk}
+Scope: ${scope}
+Key Findings: ${findings}
+Tools Used: ${tools}
+Analyst: Jasraj Choudhary, Security Analyst at ASTRO Security
+
+Structure the report as:
+1. Executive Summary
+2. Assessment Overview (methodology, scope, timeline)
+3. Risk Summary (CRITICAL/HIGH/MEDIUM/LOW findings count)
+4. Detailed Findings (for each finding: title, severity, description, evidence, CVSS score, CVE if applicable, remediation steps)
+5. Remediation Roadmap (prioritized action plan)
+6. Technical Appendix (tools used, methodology references)
+7. Declaration & Sign-off
+
+Make it thorough, professional, and client-ready. Use clear sections.`;
+  } else if (type === 'compliance') {
+    const org = document.getElementById('compOrgName').value || 'Client Organization';
+    const industry = document.getElementById('compIndustry').value;
+    const standards = Array.from(document.querySelectorAll('#compliance-tab input[type=checkbox]:checked')).map(c => c.value).join(', ');
+    const posture = document.getElementById('secPosture').value || 'Not specified';
+    btnId = 'generateCompBtn';
+    prompt = `Generate a professional Compliance Gap Analysis Report with:
+Organization: ${org}
+Industry: ${industry}
+Standards: ${standards}
+Current Security Posture: ${posture}
+Analyst: Jasraj Choudhary, ASTRO Security
+
+Include:
+1. Executive Summary
+2. Compliance Scope & Methodology
+3. Gap Analysis per standard (for each: requirements overview, current status, gaps identified, risk level, recommendations)
+4. Compliance Scorecard (estimated compliance % per standard)
+5. Remediation Priorities (90-day, 6-month, 12-month roadmap)
+6. Conclusion
+
+Be specific, professional, and actionable.`;
+  } else {
+    const company = document.getElementById('execCompany').value || 'Client Organization';
+    const exec = document.getElementById('execName').value || 'Executive Team';
+    const summary = document.getElementById('execSummary').value || 'Security assessment completed';
+    btnId = 'generateExecBtn';
+    prompt = `Generate a concise, non-technical Executive Security Summary for:
+Company: ${company}
+Audience: ${exec}
+Assessment Data: ${summary}
+Analyst: Jasraj Choudhary, ASTRO Security
+
+Include:
+1. Executive Summary (2-3 paragraphs, business-focused)
+2. Key Risk Findings (top 5, business impact language)
+3. Security Scorecard (overall rating)
+4. Priority Recommendations (top 3, with business justification and estimated cost/effort)
+5. Next Steps & Proposed Timeline
+6. Analyst Statement
+
+Keep it board-ready, no technical jargon, focused on business risk and ROI.`;
+  }
+
+  const btn = document.getElementById(btnId);
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spinner" style="display:inline-block;margin-right:8px;"></div> GENERATING REPORT...';
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': API_KEY, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: 'You are ASTRO, a professional cybersecurity report generator. Generate detailed, professional security reports. Use markdown-style formatting with clear headers (use ###), bullet points with -, and bold text with **. Be specific, technical where appropriate, and client-ready.',
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.message);
+
+    const rawText = data.content[0].text;
+    currentReportContent = rawText;
+    renderReport(rawText);
+    showToast('✅ Report generated successfully');
+  } catch (err) {
+    showToast('❌ Error: ' + err.message);
+  }
+
+  btn.disabled = false;
+  if (type === 'vapt') btn.innerHTML = '🚀 GENERATE AI-POWERED VAPT REPORT';
+  else if (type === 'compliance') btn.innerHTML = '🚀 GENERATE COMPLIANCE REPORT';
+  else btn.innerHTML = '🚀 GENERATE EXECUTIVE SUMMARY';
+}
+
+function renderReport(text) {
+  const output = document.getElementById('reportOutput');
+  const content = document.getElementById('reportContent');
+
+  // Format markdown-like text to HTML
+  let html = text
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h2>$1</h2>')
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/^- (.+)$/gm, '<li>$1</li>')
+    .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/^(?!<[hlu])/gm, '')
+    .replace(/CRITICAL/g, '<span class="severity-critical">CRITICAL</span>')
+    .replace(/HIGH/g, '<span class="severity-high">HIGH</span>')
+    .replace(/MEDIUM/g, '<span class="severity-medium">MEDIUM</span>')
+    .replace(/LOW/g, '<span class="severity-low">LOW</span>');
+
+  const today = new Date().toLocaleDateString('en-IN', { year:'numeric', month:'long', day:'numeric' });
+
+  content.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
+      <div>
+        <h2>ASTRO Security Report</h2>
+        <div class="report-meta">Generated: ${today} · Analyst: Jasraj Choudhary · ASTRO Security Operations</div>
+      </div>
+      <div style="text-align:right;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);">
+        CONFIDENTIAL<br>${today}
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div>${html}</div>
+  `;
+
+  output.classList.add('show');
+  output.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function downloadReport() {
+  const content = document.getElementById('reportContent').innerHTML;
+  const today = new Date().toLocaleDateString('en-IN');
+  const html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ASTRO Security Report</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 40px; color: #1a1a2e; line-height: 1.7; }
+  h1,h2 { color: #0066ff; font-size: 20px; border-bottom: 2px solid #0066ff; padding-bottom: 8px; margin-top: 30px; }
+  h3 { color: #003399; font-size: 16px; margin-top: 20px; }
+  .header { background: #0a0a1a; color: #fff; padding: 32px; border-radius: 8px; margin-bottom: 32px; }
+  .header h1 { color: #00d4ff; border: none; font-size: 28px; }
+  .meta { color: #7aa8cc; font-size: 12px; margin-top: 8px; }
+  ul { padding-left: 20px; }
+  li { margin: 6px 0; }
+  .severity-critical { color: #cc0033; font-weight: bold; }
+  .severity-high { color: #cc5500; font-weight: bold; }
+  .severity-medium { color: #ccaa00; font-weight: bold; }
+  .severity-low { color: #007744; font-weight: bold; }
+  .footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #ddd; font-size: 11px; color: #999; }
+  @media print { body { margin: 20px; } }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>ASTRO Security Report</h1>
+  <div class="meta">Jasraj Choudhary · ASTRO Security Operations · ${today} · CONFIDENTIAL</div>
+</div>
+${content}
+<div class="footer">
+  This report was generated by ASTRO — AI Security Operations Platform.<br>
+  Analyst: Jasraj Choudhary | jasrajchoudhary314@gmail.com | Bengaluru, Karnataka<br>
+  © ${new Date().getFullYear()} ASTRO Security. All rights reserved. For authorized use only.
+</div>
+</body></html>`;
+
+  const blob = new Blob([html], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'ASTRO_Security_Report_' + Date.now() + '.html';
+  a.click();
+  showToast('📄 Report downloaded!');
+}
+
+// ========== COMPLIANCE DETAIL ==========
+const complianceData = {
+  pcidss: {
+    name: 'PCI DSS v4.0', full: 'Payment Card Industry Data Security Standard',
+    desc: 'Applies to all entities that store, process, or transmit cardholder data. PCI DSS v4.0 introduces 64 new requirements over v3.2.1, including customized approach for controls.',
+    requirements: [
+      '1. Install and maintain network security controls',
+      '2. Apply secure configurations to all system components',
+      '3. Protect stored account data',
+      '4. Protect cardholder data with strong cryptography during transmission',
+      '5. Protect all systems and networks from malicious software',
+      '6. Develop and maintain secure systems and software',
+      '7. Restrict access to system components and cardholder data by business need to know',
+      '8. Identify users and authenticate access to system components',
+      '9. Restrict physical access to cardholder data',
+      '10. Log and monitor all access to system components and cardholder data',
+      '11. Test security of systems and networks regularly',
+      '12. Support information security with organizational policies and programs'
+    ]
+  },
+  iso27001: {
+    name: 'ISO 27001:2022', full: 'Information Security Management System',
+    desc: 'International standard for establishing, implementing, maintaining, and continually improving an ISMS. 2022 revision reduced controls from 114 to 93 across 4 themes.',
+    requirements: [
+      'Organizational Controls (37 controls): Policies, roles, responsibilities',
+      'People Controls (8 controls): HR security, awareness, training',
+      'Physical Controls (14 controls): Physical security, equipment protection',
+      'Technological Controls (34 controls): Access, crypto, network, logging',
+      'New: Threat intelligence (5.7), Cloud security (5.23)',
+      'New: Data masking (8.11), Web filtering (8.23)',
+      'Annex A now maps to ISO 27002:2022'
+    ]
+  },
+  nist: {
+    name: 'NIST CSF 2.0', full: 'NIST Cybersecurity Framework',
+    desc: 'Voluntary framework providing guidance on managing and reducing cybersecurity risk. CSF 2.0 (2024) added GOVERN function, expanding from 5 to 6 core functions.',
+    requirements: [
+      'GOVERN: Establish cybersecurity risk strategy, expectations, and policy',
+      'IDENTIFY: Understand organizational assets, risks, and environment',
+      'PROTECT: Implement appropriate safeguards',
+      'DETECT: Implement activities to identify cybersecurity events',
+      'RESPOND: Take action regarding detected cybersecurity incidents',
+      'RECOVER: Restore capabilities after cybersecurity incidents'
+    ]
+  },
+  owasp: {
+    name: 'OWASP Top 10 (2021)', full: 'Open Web Application Security Project',
+    desc: 'Standard awareness document for web application security. Represents broad consensus about the most critical security risks to web applications.',
+    requirements: [
+      'A01: Broken Access Control (most critical)',
+      'A02: Cryptographic Failures (data exposure)',
+      'A03: Injection (SQL, NoSQL, OS, LDAP)',
+      'A04: Insecure Design (design flaws)',
+      'A05: Security Misconfiguration',
+      'A06: Vulnerable & Outdated Components',
+      'A07: Identification & Authentication Failures',
+      'A08: Software & Data Integrity Failures',
+      'A09: Security Logging & Monitoring Failures',
+      'A10: Server-Side Request Forgery (SSRF)'
+    ]
+  },
+  hipaa: {
+    name: 'HIPAA', full: 'Health Insurance Portability and Accountability Act',
+    desc: 'US regulation protecting sensitive patient health information (PHI). Applies to covered entities and business associates handling healthcare data.',
+    requirements: [
+      'Privacy Rule: Standards for PHI use and disclosure',
+      'Security Rule: Administrative, physical, technical safeguards for ePHI',
+      'Breach Notification Rule: 60-day notification requirement',
+      'Required: Access controls, audit controls, integrity controls',
+      'Required: Transmission security (encryption in transit)',
+      'Required: Business Associate Agreements (BAA)',
+      'Risk Analysis: Ongoing assessment of ePHI risks'
+    ]
+  },
+  sox: {
+    name: 'SOX / GDPR', full: 'Sarbanes-Oxley & General Data Protection Regulation',
+    desc: 'SOX: US law for financial data integrity in public companies. GDPR: EU regulation for personal data protection with global reach.',
+    requirements: [
+      'SOX Section 302: CEO/CFO certify financial controls',
+      'SOX Section 404: Annual internal control assessment',
+      'SOX IT Controls: Change management, access controls, audit trails',
+      'GDPR Article 25: Data protection by design and default',
+      'GDPR Article 32: Appropriate technical & organisational measures',
+      'GDPR: 72-hour breach notification to supervisory authority',
+      'GDPR: Data subject rights (access, erasure, portability)'
+    ]
+  }
+};
+
+function loadCompliance(key) {
+  const d = complianceData[key];
+  if (!d) return;
+  const detail = document.getElementById('complianceDetail');
+  const content = document.getElementById('complianceContent');
+  content.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+      <div>
+        <div class="card-title" style="font-size:18px;">${d.name}</div>
+        <div class="card-sub">${d.full}</div>
+      </div>
+      <button onclick="document.getElementById('complianceDetail').style.display='none'" style="background:none;border:none;color:var(--text2);font-size:20px;cursor:pointer;">✕</button>
+    </div>
+    <p style="font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:16px;">${d.desc}</p>
+    <h3 style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--accent);margin-bottom:12px;">Key Requirements / Controls</h3>
+    <ul style="padding-left:20px;color:var(--text2);font-size:13px;line-height:2;">
+      ${d.requirements.map(r => `<li>${r}</li>`).join('')}
+    </ul>
+  `;
+  detail.style.display = 'block';
+  detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// ========== TOOLS ==========
+const tools = [
+  // Scanning & Recon
+  { name:'Nmap', cat:'Scanning', desc:'Network exploration and security auditing. Port scanning, OS detection, service version detection.' },
+  { name:'Masscan', cat:'Scanning', desc:'Fastest port scanner. Can scan the entire internet in under 6 minutes.' },
+  { name:'Shodan', cat:'OSINT', desc:'Search engine for internet-connected devices. Finds exposed services globally.' },
+  { name:'theHarvester', cat:'OSINT', desc:'Gather emails, names, subdomains, IPs, and URLs using multiple public sources.' },
+  { name:'Maltego', cat:'OSINT', desc:'Visual link analysis and OSINT. Maps relationships between entities.' },
+  { name:'Recon-ng', cat:'OSINT', desc:'Web reconnaissance framework with modular approach and OSINT automation.' },
+  // Vulnerability Assessment
+  { name:'Nessus', cat:'Vuln Scanner', desc:'Industry-leading vulnerability scanner. Detects 60,000+ CVEs across networks and web apps.' },
+  { name:'OpenVAS', cat:'Vuln Scanner', desc:'Open-source vulnerability scanner and manager. Free alternative to Nessus.' },
+  { name:'Nikto', cat:'Web Scanner', desc:'Web server scanner detecting dangerous files, misconfigurations, and outdated software.' },
+  { name:'Nuclei', cat:'Web Scanner', desc:'Fast vulnerability scanner using YAML templates. 5000+ community templates.' },
+  { name:'WPScan', cat:'Web Scanner', desc:'WordPress security scanner. Enumerates users, plugins, themes, and vulnerabilities.' },
+  // Exploitation
+  { name:'Metasploit', cat:'Exploitation', desc:'World\'s most used penetration testing framework. 2000+ exploits, payloads, and auxiliary modules.' },
+  { name:'SQLMap', cat:'Exploitation', desc:'Automatic SQL injection detection and exploitation tool.' },
+  { name:'Hydra', cat:'Brute Force', desc:'Fast network login cracker supporting 50+ protocols including SSH, FTP, HTTP, RDP.' },
+  { name:'John the Ripper', cat:'Brute Force', desc:'Password security auditing and recovery tool. Supports 100+ hash types.' },
+  { name:'Hashcat', cat:'Brute Force', desc:'World\'s fastest GPU-based password cracker. Multi-hash, multi-GPU support.' },
+  // Web App
+  { name:'Burp Suite', cat:'Web App', desc:'Leading web application security testing platform. Proxy, scanner, intruder, repeater.' },
+  { name:'ZAP (OWASP)', cat:'Web App', desc:'Free web application security scanner. OWASP\'s flagship security tool.' },
+  { name:'Gobuster', cat:'Web App', desc:'Directory/file/DNS/S3 busting tool. Finds hidden paths and subdomains.' },
+  { name:'ffuf', cat:'Web App', desc:'Fast web fuzzer for directory discovery, parameter fuzzing, and vhost discovery.' },
+  // Network Analysis
+  { name:'Wireshark', cat:'Network', desc:'World\'s most popular network protocol analyzer. Deep inspection of hundreds of protocols.' },
+  { name:'Tcpdump', cat:'Network', desc:'Powerful command-line packet analyzer. Capture and analyze network traffic.' },
+  { name:'Responder', cat:'Network', desc:'LLMNR/NBT-NS/MDNS poisoner. Captures NTLMv2 hashes on local networks.' },
+  { name:'Impacket', cat:'Network', desc:'Python classes for working with network protocols. SMB, LDAP, Kerberos attacks.' },
+  // Post-Exploitation
+  { name:'Mimikatz', cat:'Post-Exploit', desc:'Extract credentials from Windows memory. Kerberos tickets, NTLM hashes, plaintext passwords.' },
+  { name:'BloodHound', cat:'Post-Exploit', desc:'Active Directory attack path analysis. Maps privilege escalation paths.' },
+  { name:'CrackMapExec', cat:'Post-Exploit', desc:'Network security Swiss army knife. SMB enumeration, credential testing, execution.' },
+  { name:'Empire', cat:'Post-Exploit', desc:'PowerShell and Python post-exploitation framework. Evasion, lateral movement.' },
+  // SIEM & Monitoring
+  { name:'Splunk', cat:'SIEM', desc:'Industry-leading SIEM platform. Log aggregation, correlation, threat detection at scale.' },
+  { name:'QRadar', cat:'SIEM', desc:'IBM\'s enterprise SIEM. AI-powered threat detection and compliance reporting.' },
+  { name:'Elastic SIEM', cat:'SIEM', desc:'Open-source SIEM built on Elasticsearch. MITRE ATT&CK integration.' },
+  // Forensics
+  { name:'Autopsy', cat:'Forensics', desc:'Digital forensics platform. Disk image analysis, timeline, artifact extraction.' },
+  { name:'Volatility', cat:'Forensics', desc:'Memory forensics framework. Analyze RAM dumps for malware, credentials.' },
+  { name:'FTK', cat:'Forensics', desc:'Forensic Toolkit by Exterro. Industry-standard digital forensics and eDiscovery.' },
+];
+
+function renderTools() {
+  const grid = document.getElementById('toolGrid');
+  grid.innerHTML = tools.map(t => `
+    <div class="tool-card" data-name="${t.name.toLowerCase()}" data-cat="${t.cat.toLowerCase()}">
+      <div class="tool-cat">${t.cat}</div>
+      <div class="tool-name">${t.name}</div>
+      <div class="tool-desc">${t.desc}</div>
+    </div>
+  `).join('');
+}
+
+function filterTools() {
+  const q = document.getElementById('toolSearch').value.toLowerCase();
+  document.querySelectorAll('.tool-card').forEach(card => {
+    const name = card.dataset.name;
+    const cat = card.dataset.cat;
+    card.style.display = (!q || name.includes(q) || cat.includes(q)) ? '' : 'none';
+  });
+}
+</script>
 </body>
 </html>
